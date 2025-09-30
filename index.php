@@ -9,17 +9,22 @@
 </head>
 
 <body>
-    <button>
-        Clicca per tirare il dado
-    </button>
     <div class="colorInvert">
         <?php
-        $randomNumber = random_int(1, 6);
-        $content = file_get_contents('images/dice' . $randomNumber . '.svg');
-        echo $content;
+        $dicesToGenerate = 2;
+        $totalContent = '';
+        function generateNumber()
+        {
+            return $randomNumber = random_int(1, 6);
+        }
+        for ($i=0 ; $i < $dicesToGenerate ; $i++) {
+        $diceContent = file_get_contents('images/dice' . generateNumber() . '.svg');
+        $totalContent = $diceContent . $totalContent;
+        }
+        echo $totalContent;
         ?>
     </div>
-    
+
 </body>
 
 </html>
